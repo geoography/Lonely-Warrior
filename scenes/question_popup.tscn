@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dy0ny62wschcq"]
+
+[ext_resource type="Script" uid="uid://c2v7kuoyjsvva" path="res://scripts/question_popup.gd" id="1_5cnnj"]
+[ext_resource type="FontFile" uid="uid://c6de81dyoeph5" path="res://assets/fonts/PixelOperator8.ttf" id="2_abuf5"]
+[ext_resource type="Texture2D" uid="uid://dqbt22cic85n0" path="res://assets/sprites/paper.png" id="2_kgfl8"]
+
+[node name="QuestionPopup" type="ConfirmationDialog" unique_id=1786803458]
+oversampling_override = 1.0
+position = Vector2i(0, 36)
+size = Vector2i(516, 657)
+visible = true
+script = ExtResource("1_5cnnj")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=822690325]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 508.0
+offset_bottom = 608.0
+texture = ExtResource("2_kgfl8")
+expand_mode = 1
+flip_v = true
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1404233548]
+custom_minimum_size = Vector2(400, 600)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=354430777]
+layout_mode = 2
+alignment = 1
+
+[node name="QuestionText" type="RichTextLabel" parent="CenterContainer/VBoxContainer" unique_id=870883149]
+custom_minimum_size = Vector2(250, 400)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Berapa 5 + 7?l
+l
+l
+l
+l
+l
+l"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="CenterContainer/VBoxContainer" unique_id=1508866378]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+
+[node name="AnswerInput" type="LineEdit" parent="CenterContainer/VBoxContainer" unique_id=1251193917]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_abuf5")
+theme_override_font_sizes/font_size = 16
+placeholder_text = "....."
+alignment = 1
