@@ -16,9 +16,8 @@ func _on_body_entered(body: Node2D) -> void:
 	var remaining_keys = required_keys - GameManager.key_count
 	if remaining_keys > 0:
 		show_notification("Temukan %d kunci lagi!" % remaining_keys, Color.CYAN)
-		is_active = true  
-		return     
-			   	
+		return  # ✅ Cukup return aja
+	
 	is_active = false
 	
 	show_notification("Semua kunci terkumpul!", Color.GOLD)
@@ -38,8 +37,6 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	if sprite: sprite.visible = false
 	if collision: collision.set_deferred("disabled", true)
-	
-	print("🌀 Player masuk portal & hilang!")
 
 func show_notification(text: String, warna: Color):
 	if notif_label:

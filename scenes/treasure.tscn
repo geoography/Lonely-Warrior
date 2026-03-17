@@ -212,6 +212,7 @@ _data = {
 }
 
 [node name="Treasure" type="Area2D" unique_id=532245085]
+position = Vector2(1, 0)
 collision_mask = 2
 script = ExtResource("1_it12x")
 
