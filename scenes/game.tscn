@@ -489,8 +489,11 @@ theme_override_fonts/font = ExtResource("7_ca42v")
 
 [node name="Treasure" parent="Treasures" unique_id=1524805995 instance=ExtResource("10_vtaks")]
 position = Vector2(176, 53)
-soal_ini = "1 + 2?"
-jawaban_ini = "3"
+soal_ini = "Determinan matriks:
+[[4 2],
+ [3 5]]
+adalah ...."
+jawaban_ini = "14"
 treasure_id = "treasure_1"
 
 [node name="Treasure2" parent="Treasures" unique_id=1135316617 instance=ExtResource("10_vtaks")]
@@ -503,11 +506,11 @@ treasure_id = "treasure_2"
 
 [node name="Treasure3" parent="Treasures" unique_id=532245085 instance=ExtResource("10_vtaks")]
 position = Vector2(-15, -249)
-soal_ini = "Determinan matriks:
-[[4 2],
- [3 5]]
-adalah ...."
-jawaban_ini = "14"
+soal_ini = "Diketahui matriks A:
+[[1 2],
+ [3 4]]
+determinan dari 3A adalah.."
+jawaban_ini = "-18"
 treasure_id = "treasure_3"
 
 [node name="Treasure4" parent="Treasures" unique_id=438431187 instance=ExtResource("10_vtaks")]

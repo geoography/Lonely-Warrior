@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://d1d13elqj6v44" path="res://scripts/treasure.gd" id="1_it12x"]
 [ext_resource type="Texture2D" uid="uid://bgevans6b3d37" path="res://assets/sprites/Chests.png" id="2_0g4qu"]
 [ext_resource type="AudioStream" uid="uid://cv7k7u12vj060" path="res://assets/sounds/locked.wav" id="3_0g4qu"]
-[ext_resource type="AudioStream" uid="uid://b7fwliauav2l0" path="res://assets/sounds/Drawer_open.ogg" id="3_wqbho"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wqbho"]
 atlas = ExtResource("2_0g4qu")
@@ -127,22 +126,10 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("OpenSound:playing")
+tracks/1/path = NodePath("LockedSound:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("LockedSound:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -191,18 +178,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [&"open"]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("OpenSound:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wqbho"]
 _data = {
@@ -225,10 +200,6 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1361773331]
 position = Vector2(-4, 3)
 shape = SubResource("RectangleShape2D_0g4qu")
-
-[node name="OpenSound" type="AudioStreamPlayer2D" parent="." unique_id=591859922]
-stream = ExtResource("3_wqbho")
-bus = &"SFX_treasure_open"
 
 [node name="LockedSound" type="AudioStreamPlayer2D" parent="." unique_id=568196912]
 stream = ExtResource("3_0g4qu")
