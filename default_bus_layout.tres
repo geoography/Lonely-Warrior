@@ -1,5 +1,12 @@
 [gd_resource type="AudioBusLayout" format=3 uid="uid://dq0ln2fm7timx"]
 
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j3pel"]
+resource_name = "Reverb"
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_j3pel"]
+resource_name = "Distortion"
+drive = 0.32
+
 [resource]
 bus/0/bypass_fx = true
 bus/1/name = &"Music"
@@ -24,7 +31,7 @@ bus/4/name = &"SFX_treasure_open"
 bus/4/solo = false
 bus/4/mute = false
 bus/4/bypass_fx = false
-bus/4/volume_db = -3.1173582
+bus/4/volume_db = 0.46499825
 bus/4/send = &"Master"
 bus/5/name = &"SFX_treasure_locked"
 bus/5/solo = false
@@ -38,3 +45,13 @@ bus/6/mute = false
 bus/6/bypass_fx = false
 bus/6/volume_db = 6.0199986
 bus/6/send = &"Master"
+bus/7/name = &"SFX_portal_closed"
+bus/7/solo = false
+bus/7/mute = false
+bus/7/bypass_fx = false
+bus/7/volume_db = 6.0199986
+bus/7/send = &"Master"
+bus/7/effect/0/effect = SubResource("AudioEffectReverb_j3pel")
+bus/7/effect/0/enabled = true
+bus/7/effect/1/effect = SubResource("AudioEffectDistortion_j3pel")
+bus/7/effect/1/enabled = true

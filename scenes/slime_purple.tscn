@@ -40,7 +40,7 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l8pv"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2p8uo"]
 size = Vector2(14, 15)
 
 [node name="Slime" type="Node2D" unique_id=1989639577]
@@ -49,14 +49,14 @@ script = ExtResource("1_2p8uo")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=538592045]
 sprite_frames = SubResource("SpriteFrames_v5wyi")
 autoplay = "default"
-frame_progress = 0.6605267
+frame_progress = 0.93885165
 flip_h = true
 
-[node name="KillZone" parent="." unique_id=1478831348 instance=ExtResource("3_m27ho")]
+[node name="KillZone" parent="." unique_id=691856271 instance=ExtResource("3_m27ho")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=725000947]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=355111424]
 position = Vector2(0, 4.5)
-shape = SubResource("RectangleShape2D_0l8pv")
+shape = SubResource("RectangleShape2D_2p8uo")
 
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=1316755316]
 position = Vector2(0, 4)

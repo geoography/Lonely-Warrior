@@ -1,22 +1,20 @@
 extends Area2D
 
-@export var required_keys: int = 5
+@export var required_keys: int = 8
 
 var is_active = true
 
 @onready var sprite = $AnimatedSprite2D
 @onready var collision = $CollisionShape2D
-@onready var notif_label = $"../NotificationLabel"
+@onready var notif_label = $"../../NotificationLabel"
 @onready var animation_player = $AnimationPlayer
 
 func _on_body_entered(body: Node2D) -> void:
-	if not is_active or body.name != "Player":
-		return
 	
 	var remaining_keys = required_keys - GameManager.key_count
 	if remaining_keys > 0:
 		show_notification("Temukan %d kunci lagi!" % remaining_keys, Color.CYAN)
-		return  # ✅ Cukup return aja
+		return  
 	
 	is_active = false
 	

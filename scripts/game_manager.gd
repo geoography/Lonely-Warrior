@@ -4,7 +4,6 @@ var coin_count: int = 0
 var key_count: int = 0
 var checkpoint_position: Vector2 = Vector2(-95, -104)
 
-# ✅ TAMBAH INI - Track koin & peti yang sudah diambil
 var collected_coins: Array = []
 var opened_treasures: Array = []
 

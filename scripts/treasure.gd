@@ -19,16 +19,12 @@ var is_question_done = false
 @onready var key_scene = load(KEY_SCENE_PATH)
 
 func _ready() -> void:
-	print("🆔 [TREASURE %s] Ready! GM Instance ID: %s" % [treasure_id, GameManager.get_instance_id()])
-	
 	if GameManager.is_treasure_opened(treasure_id):
 		is_question_done = true
 		is_opened = true
 		monitoring = false
 		monitorable = false
-		
-		if animation_player and animation_player.has_animation("open"):
-			animation_player.play("open")
+		animation_player.play("open")
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -48,11 +44,9 @@ func _process(delta):
 		if is_question_done:
 			return
 		if not is_opened:
-			
 			if GameManager.coin_count < required_coins:
 				show_notification("Koin Kurang! \nButuh %d koin." % required_coins, Color.ORANGE)
-				if animation_player and animation_player.has_animation("locked"):
-					animation_player.play("locked", 0.0)
+				animation_player.play("locked", 0.0)
 				return
 			
 			animation_player.play("open", 0.0)
@@ -62,6 +56,9 @@ func _process(delta):
 			tampilkan_soal()
 
 func tampilkan_soal():
+	if is_question_done:
+		return
+	
 	if question_ui:
 		is_quiz_active = true
 		monitoring = false
@@ -80,7 +77,19 @@ func _on_soal_dijawab(is_correct: bool):
 	selesaikan_peti(is_correct)
 
 func selesaikan_peti(berhasil: bool):
+	if is_question_done:
+		return
+	
 	if berhasil:
+		is_question_done = true
+		GameManager.mark_treasure_opened(treasure_id)
+		
+		if GameManager.coin_count >= required_coins:
+			GameManager.coin_count -= required_coins
+		else:
+			is_question_done = false
+			return
+		
 		if key_scene and not key_spawned:
 			var key = key_scene.instantiate()
 			var game_root = get_node("/root/Game")
@@ -94,18 +103,7 @@ func selesaikan_peti(berhasil: bool):
 			key_spawned = true
 			show_notification("Dapat Kunci!", Color.GOLD)
 		
-		if GameManager.coin_count >= required_coins:
-			GameManager.coin_count -= required_coins
-			print("💰 [TREASURE] Paid: -%d coins | Remaining: %d" % [
-				required_coins, GameManager.coin_count])
-		else:
-			# ⚠️ Edge case: koin habis di tengah-tengah (jarang terjadi)
-			print("⚠️ [TREASURE] Warning: Not enough coins to pay after spawning key!")
-			show_notification("Koin tidak cukup untuk bayar!", Color.RED)
-		
-		is_question_done = true
 		GameManager.set_checkpoint(global_position + Vector2(0, -100))
-		GameManager.mark_treasure_opened(treasure_id)
 	else:
 		show_notification("SALAH! Coba lagi.", Color.RED)
 		tampilkan_soal()
